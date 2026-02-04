@@ -1,73 +1,104 @@
-# React + TypeScript + Vite
+# Checkout Items 🛒
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive product checkout interface built with **React** and **Vite**. This project demonstrates a clean UI for managing shopping cart items, optimized for fast performance and seamless deployment.
 
-Currently, two official plugins are available:
+🚀 **[Live Demo](https://abdulrahman-ka.github.io/checkout-items/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Product Listing:** Dynamic display of checkout items with price and details.
+- **Responsive UI:** Optimized for mobile, tablet, and desktop screens.
+- **Vite-Powered:** Lightning-fast development and optimized production builds.
+- **GitHub Pages Ready:** Configured for seamless deployment to subfolder environments.
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Technology       | Purpose                  |
+| :--------------- | :----------------------- |
+| **React**        | UI Library               |
+| **Vite**         | Build Tool & Dev Server  |
+| **CSS3**         | Custom Styling & Layouts |
+| **GitHub Pages** | Hosting                  |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📂 Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+├── public/
+│   └── assets/          # Static files (images, icons)
+├── src/
+│   ├── components/      # Reusable UI parts
+│   ├── App.jsx          # Main application logic
+│   └── main.jsx         # Entry point
+├── index.html           # HTML template
+├── vite.config.js       # Vite configuration
+└── package.json         # Scripts and dependencies
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Abdulrahman-Ka/checkout-items.git
+cd checkout-items
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run development mode
+
+```bash
+npm run dev
+```
+
+### 4. Build for production
+
+```bash
+npm run build
+```
+
+---
+
+## 🔧 Deployment & Build Fixes
+
+If you are deploying this project to **GitHub Pages**, ensure your `vite.config.js` includes the `base` property to prevent broken image links and 404s:
+
+```javascript
+// vite.config.js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+export default defineConfig({
+  plugins: [react()],
+  base: "/checkout-items/", // Matches your repository name
+});
+```
+
+### Handling Images in Build Mode
+
+When using images inside `public/assets/`:
+
+- **Correct Path:** `<img src="/assets/image-name.png" />`
+- **Avoid:** Do not include `public` in the string path. Vite automatically moves contents of `public` to the root of the `dist` folder during build.
+
+---
+
+## 👤 Author
+
+**Abdulrahman-Ka**
+
+- GitHub: [@Abdulrahman-Ka](https://github.com/Abdulrahman-Ka)
+
+---
+
+_Developed as part of a frontend practice series._
